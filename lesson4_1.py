@@ -68,10 +68,57 @@
 # A[2] = 5
 
 # print('A:',A,'B:', B)
-import copy
-A = [['d','e'], ['a','b']]
-B = copy.deepcopy(A)
+# import copy
+# A = [['d','e'], ['a','b']]
+# B = copy.deepcopy(A)
 
-A[1][0] = 'z'
+# A[1][0] = 'z'
 
-print('A:',A,'B:', B)
+# print('A:',A,'B:', B)
+
+
+#Task1 
+# A = [4,2,1,5,7,3,6,8]
+# A.sort()
+
+# # A1 = A[:2]
+
+# # A2 = A[2:6]
+# # A2.sort(reverse=True)
+
+# # A3 = A[6:]
+# # B = A1 + A2 + A3
+# # print(B)
+# A[2:6] = A[2:6][::-1]
+# print(A)
+
+#Task2
+# A = []
+
+# name1 = input('1ci işçinin adını daxil edin: ')
+# surname1 = input('1ci işçinin soyadını daxil edin: ')
+# # A.append([name1, surname1])
+
+# name2 = input('2ci işçinin adını daxil edin: ')
+# surname2 = input('2ci işçinin soyadını daxil edin: ')
+# # A.append([name2, surname2])
+
+# name3 = input('3ci işçinin adını daxil edin: ')
+# surname3 = input('3ci işçinin soyadını daxil edin: ')
+# # A.append([name3, surname3])
+
+# A = [[name1, surname1], [name2, surname2], [name3, surname3]]
+# print(A)
+# choice = int(input('Hansi işçini istəyirsən? '))
+
+# print(A[choice-1])
+
+#Task 3
+
+# A = [1,2,3,2,1]
+# # 
+# print(A == A[::-1])
+
+# #Task 4
+
+# print(A[::-1])
