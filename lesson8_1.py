@@ -104,33 +104,58 @@ A = {
 #     'sagol':7
 # }
 
-import turtle
-import math
+# a = input('Ededi daxil edin: ')
+# print(len(a.strip()))
+
+# a = int(input('Ededi daxil edin:'))
+
+# digit_count = 0
+
+# while a > 0: # a=0
+#     a //= 10
+#     digit_count += 1
+
+# print(digit_count)
+
+#Task2
+
+# a, b = 0, 1
+# num = int(input('Ededi daxil edin: ')) # 30
+# while a <= num:
+#     print(a) # 34
+#     a, b = b, a + b # 34
 
 
-t = turtle.Turtle()
-t.speed(0)  
-t.color("red")  
-turtle.bgcolor("black")  
+#Task3
+# a = int(input('Ededi daxil edin:'))
 
-def corazon(n):
-    x = 16 * math.sin(n) ** 3
-    y = 13 * math.cos(n) - 5 * math.cos(2 * n) - 2 * math.cos(3 * n) - math.cos(4 * n)
-    return x, y
+# _sum = 0
 
-t.penup()
-for i in range(1, 16):   
-    t.goto(0, -50 * i)  
-    t.pendown()    
-
+# while a > 0: # a=0
+#     _sum += a % 10
+#     a = a // 10
     
-    for n in range(0, 628, 5):  
-        angle = n / 100  
-        x, y = corazon(angle)  
-        t.goto(x * i, y * i)  
 
-    t.penup()  
+# print(_sum)
+#1234 // 10 = 123
+#1234 % 10 = 4
 
 
-t.hideturtle()
-turtle.done()
+# a = 122345
+
+a = int(input('Ededi daxil edin: '))
+a = str(a)
+
+count = 0
+flag = False
+while count < len(a):
+    if a[count] == a[count + 1]:
+        flag = True
+        break
+    
+    count += 1
+
+if flag:
+    print('Eyni yanaşı ədəd tapıldı')
+else:
+    print('Eyni yanaşı ədəd tapılmadı')
