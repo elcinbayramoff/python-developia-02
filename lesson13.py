@@ -49,12 +49,12 @@
 
 # division(4, 0)
 
-try:
-    a = int(input())
-    b = int(input())
-    try:
-        print(a/b)
-    except ZeroDivisionError:
-        raise ZeroDivisionError('0-a bölmə')
-except Exception as e:
-    print('Hi',e)
+# try:
+#     a = int(input())
+#     b = int(input())
+#     try:
+#         print(a/b)
+#     except ZeroDivisionError:
+#         raise ZeroDivisionError('0-a bölmə')
+# except Exception as e:
+#     print('Hi',e)
