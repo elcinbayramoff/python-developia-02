@@ -74,3 +74,6 @@ w+ r+
 
 # with open('data.txt', 'w+', encoding='utf-8') as f:
 #     f.write('Necəsən?')
+
+with open('data.txt', 'w') as f:
+    f.read()
