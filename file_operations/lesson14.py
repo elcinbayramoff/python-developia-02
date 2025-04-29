@@ -21,6 +21,7 @@ w+ - datanı silir  read/write
 # #     print(line.strip())
 
 # data = file.readlines()
+# print('Data',data)
 # for line in data:
 #     print(line.strip())
 
@@ -59,7 +60,17 @@ w+ - datanı silir  read/write
 """
 w+ r+
 """
-with open('data.txt', 'r+', encoding='utf-8') as f:
-    f.write('Necəsən')
-    f.seek(0)
-    f.write('salam')
+# with open('data.txt', 'r+', encoding='utf-8') as f:
+#     f.write('Necəsən')
+#     f.seek(0)
+#     f.write('salam')
+
+
+
+# with open('data.txt', 'w+') as f:
+    # f.write('Salam')
+    # f.seek(0)
+    # f.write('Hi') 
+
+# with open('data.txt', 'w+', encoding='utf-8') as f:
+#     f.write('Necəsən?')
