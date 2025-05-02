@@ -57,18 +57,57 @@
 #     else:
 #         print('Yuxarıdadır')
 
-a = int(input())#5
-"""
-*****
-****
-***
-**
-*
-*
-**
-***
-****
-*****
-"""
-for i in range(1, a+1):
-    print('*' * i)
+# a = int(input())#5
+# """
+# *****
+# ****
+# ***
+# **
+# *
+# *
+# **
+# ***
+# ****
+# *****
+# """
+# for i in range(1, a+1):
+#     print('*' * i)
+
+# import random
+
+# random.random()
+# random.randint()
+
+# A = [1,2,3,4,5,6]
+
+# random.choices(A,k=3)
+# import string
+
+# characters = string.ascii_letters + string.digits
+# result = random.choices(characters, k=4)
+# print(result) 
+
+import string
+import random
+
+def password_generator(length):
+    characters = string.ascii_letters + string.digits
+    while True:
+        password = ''.join(random.choices(characters, k=length))
+        print(password)
+        digit_exists = False
+        lower_exists = False
+        upper_exists = False
+        for symbol in password:
+            if symbol.isdigit():
+                digit_exists = True
+            elif symbol.islower():
+                lower_exists = True
+            elif symbol.isupper():
+                upper_exists = True
+
+        if digit_exists and lower_exists and upper_exists:
+            return password
+            
+
+print(password_generator(8))

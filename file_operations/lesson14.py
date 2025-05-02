@@ -75,5 +75,32 @@ w+ r+
 # with open('data.txt', 'w+', encoding='utf-8') as f:
 #     f.write('Necəsən?')
 
-with open('data.txt', 'w') as f:
-    f.read()
+# with open('data.txt', 'w') as f:
+#     f.read()
+
+
+# with open('data.txt','r') as f:
+    # data = f.read()
+    # data = f.readlines() #['Hello\n', 'Hi']
+    # data = f.readline()
+    # for line in f:
+    #     print(line.strip())
+# A = ['salam','necesen','Hi']
+# with open('data.txt', 'w') as f:
+    # f.write('Salam')
+    # f.writelines(A)
+    
+# with open('data.txt', 'w+', encoding='utf-8') as f:
+#     f.write('Necəsən')
+#     f.seek(1)
+#     data = f.read()
+#     print(data)
+
+
+"""
+data.txt
+Salam necesen
+"""
+
+# file_name = input()
+# file_data = input()
