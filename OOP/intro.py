@@ -88,7 +88,7 @@ class Person:
 #staticmethod
 #dunder methods, magic methods
 
-class User:
+class User: # def get_user_count() 1048756
     user_count = 0
     usernames = []
     def __init__(self, username, age):
@@ -98,6 +98,10 @@ class User:
         self.age = age
         User.user_count += 1
         User.usernames.append(username)
+
+    @classmethod
+    def get_user_count(cls):
+        return cls.user_count
 
     @classmethod
     def is_available(cls, username):
@@ -119,9 +123,13 @@ class User:
 user1 = User('elchin',99)
 print(user1)
 
-user2 = User('ali', 30)
+user2 = User('ali123', 30)
 print(user2)
 
+user3 = User('Vali', 30)
+print(user3)
 # user_str = str(user1)
 # print(user_str)
-
+# User.get_user_count()
+print(User.get_user_count()) 
+#from string class method
