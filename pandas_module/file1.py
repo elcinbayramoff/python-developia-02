@@ -68,6 +68,7 @@ Item
 import pandas as pd
 
 df = pd.read_excel('pandas_module/sales.xlsx',sheet_name=0)
+df1 = pd.read_excel('pandas_module/sales.xlsx',sheet_name=0)
 
 # top_10_rows = df.head(10)
 # last_10_rows = df.tail(10)
@@ -79,7 +80,7 @@ df = pd.read_excel('pandas_module/sales.xlsx',sheet_name=0)
 # df_pencil.to_excel('pandas_module/sales_updated.xlsx')
 
 
-import json
+# import json
 
 # telebeler = [
 # {"name": "Nərgiz", "age": 21},
@@ -116,3 +117,5 @@ import json
 # #yazmaq
 # with open('json_module/telebe_updated.json','w',encoding='utf-8') as f:
 #     json.dump(data, f, indent=4, ensure_ascii=False)
+
+
