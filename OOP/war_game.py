@@ -66,7 +66,7 @@ class Hero(Character):
         # else:
         #     weapon_name = 'None'
         
-        # weapon_name = self.equipped_weapon.name if self.equipped_weapon else 'None'
+        weapon_name = self.equipped_weapon.name if self.equipped_weapon else 'None'
 
         print(f'{self.name}')
         print(f'HP: {self.hp}/{self.max_hp}') # 70/100
@@ -103,7 +103,8 @@ class Hero(Character):
                 try:
                     selection = int(input('>')) - 1
                     _item = self.inventory.pop(selection)
-                    ... # Itemlari bitirende qayit
+                    _item.use(self)
+                    
                 except (ValueError, IndexError):
                     print('Invalid choice')
                     item = locals().get('_item')
@@ -150,14 +151,105 @@ class Weapon(Item):
         hero.equip(self)
 
 class Potion(Item):
-    ...
+    def __init__(self, name, heal):
+        super().__init__(name, f'Gives {heal} heal')
+        self.heal = heal
+    
+    def use(self, hero: Hero):
+        hero.hp
+        hero.max_hp
+        self.heal
+        if hero.hp < hero.max_hp:
+            hero.hp += self.heal
+            if hero.hp > hero.max_hp:
+                hero.hp = hero.max_hp
+        
+        # hp = 90, max = 100, heal = 15 -> 100
+        hero.hp = min(self.heal + hero.hp, hero.max_hp)
+                    # 90 + 15, 100 - > 100
+                    # 70 + 15, 100 - > 85
+
 
 class Room:
-    ...
+    def __init__(self, description, enemies, loots, on_clear_text):
+        self.description = description
+        self.enemies = enemies
+        self.loots = loots
+        self.on_clear_text = on_clear_text
+
+    def enter(self, hero: Hero):
+        #self.description burda
+        input('Press Enter to continue')
+        for enemy in self.enemies:
+            while enemy.is_alive and hero.is_alive:
+                hero.choose_action(enemy)
+                if enemy.is_alive:
+                    enemy.attack(hero)
+
+        if not hero.is_alive:
+            ...
+            return
+        
+        print(self.on_clear_text)
+
+        if self.loots:
+            ...
+            for loot in self.loots:
+                hero.inventory.append(loot)
+
 
 class Game:
-    ...
+    def __init__(self):
+        self.player = None
+        self.rooms = self._create_world()
 
+    def _create_world(self):
+        dusty_sword =  Weapon('Dust Sword', 10) # 50
+        fire_sword = Weapon('Fire Sword', 22) # 15
+        lightning_sword = Weapon('Lightning Sword', 27) # 10
+        bow = Weapon('Bow', 15) # 25
+        all_weapons = {dusty_sword:50,fire_sword:15,lightning_sword:10, bow:25}
+
+        potion_small = Potion('Small Potion', 15) # 50
+        potion_medium = Potion('Medium Potion', 30) # 30
+        potion_big = Potion('Big Potion', 70) # 20
+        all_potions = {potion_small: 50, potion_medium: 30, potion_big: 20}
+
+        return [
+            Room(
+                description='',
+                enemies=[Enemy('Goblin',30, 8, 1)],
+                loots= self.random_item_selecter(all_weapons) + self.random_item_selecter(all_potions),
+
+            ),
+            Room(
+                description='',
+                enemies=[Enemy('Orc',45, 12, 3)],
+                loots= self.random_item_selecter(all_weapons) + self.random_item_selecter(all_potions, 2),
+
+            ),
+            Room(
+                description='',
+                enemies=[Enemy('Dragon',100, 18, 5)],
+                loots= [self.random_item_selecter(all_weapons, 2) + self.random_item_selecter(all_potions)],
+
+            ),
+        ]
+    
+    def _create_player(self):
+        print('Enter your name, Hero!:')
+        name = input('> ').strip() or 'Hero'
+        
+
+    
+    @staticmethod
+    def random_item_selecter(elements: dict, count=1):
+        base = []
+        for item, percentage in elements.items():
+            base += [item] * percentage
+        
+        for n in random.choices(base, k=count):
+            print(n)
 
 
 """
